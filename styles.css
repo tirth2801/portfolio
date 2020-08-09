@@ -1,0 +1,286 @@
+/* light color: #e8f1f5
+dark color: #005691 */
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 7rem;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+h2 {
+  font-size: 4rem;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+h3 {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+h4 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h5 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+hr {
+  border-style: ridge none none;
+  width: 60%;
+  border-width: 3px;
+}
+
+/* -------------------------------------------------------------------------- */
+
+
+/* Nav Bar */
+.navbar {
+  background-color: #005691;
+  font-size: 1.25rem;
+  font-family: 'Ultra', serif;
+}
+
+.align {
+  padding-top: 1rem;
+}
+
+.nav-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Introduction */
+.intro{
+  text-align: center;
+  padding-top: 15rem;
+  padding-bottom: 16rem;
+  background-color: #005691;
+  color: #e8f1f5;
+}
+
+.ht {
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* About me */
+#about {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #e8f1f5;
+  color: #005691;
+}
+
+.row {
+  padding: 3.5rem 2rem;
+}
+
+.description {
+  padding-top: 3rem;
+  padding-right: 4rem;
+  font-size: 1.25rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.desAbout {
+  padding-left: 4rem;
+}
+
+.view {
+  padding-left: 6rem;
+}
+
+.myImage {
+  width: 55%;
+}
+
+.download-button{
+  margin: 8% 4% 5% 0;
+  font-size: 1.75rem;
+  color: #005691;
+  border-color: #005691;
+}
+
+.btn-outline-info:hover {
+  background-color: #005691;
+  border-color: #005691;
+  color: #e8f1f5;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Education */
+#edu {
+  text-align: center;
+  background-color: #005691;
+  color: #e8f1f5;
+  padding-top: 5rem;
+}
+
+.check {
+  padding-top: 1rem;
+}
+
+.eduDes {
+  padding-right: 3.75rem;
+  padding-left: 4.5rem;
+  padding-top: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.dean {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.resumeButton {
+  text-align: center;
+  padding-left: 1.25rem;
+}
+
+.vtPic {
+  width: 45%
+}
+
+.courseColor {
+  color: #e8f1f5;
+  border-color: #e8f1f5;
+}
+
+.btn-outline-dark:hover {
+  border-color: #e8f1f5;
+  background-color: #e8f1f5;
+  color: #005691;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Skills */
+#skills {
+  text-align: center;
+  padding-top: 5rem;
+  background-color: #e8f1f5;
+  color: #005691;
+}
+
+.skillsFavi {
+  font-size: 3rem;
+}
+
+.card {
+  margin-left: 3rem;
+  margin-right: 3rem;
+  margin-top: 2rem;
+  border-color: #005691;
+  border-width: thin;
+  border-style: solid;
+  background-color: #e8f1f5;
+}
+
+.card-text {
+  text-align: left;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2rem;
+  padding-top: 1rem;
+  line-height: 1.75;
+}
+
+.card-header {
+  text-align: center;
+  background-color: #e8f1f5;
+}
+
+/* -------------------------------------------------------------------------- */
+
+/* Projects */
+#projects {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  background-color:#005691;
+  color: #e8f1f5;
+}
+
+.proDes {
+  padding-top: 1.5rem;
+}
+
+.proPic {
+  width: 65%;
+  height: 300px;
+  border-radius: 3%;
+}
+
+.proh4 {
+  padding-top: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+.proWriteUp {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.25rem;
+}
+
+.gitButton {
+  padding-left: 1rem;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/* Work Experience */
+#work {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  background-color: #e8f1f5;
+  color: #005691;
+}
+
+.workWriteUp {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.25rem;
+}
+
+.workEx {
+  width: 60%;
+  height: 300px;
+  border-radius: 3%;
+}
+
+.math {
+  border-color: white;
+  background-color: white;
+}
+
+.workDes {
+  padding-top: 1.5rem;
+}
+
+
+/* -------------------------------------------------------------------------- */
+
+/* Contact Me */
+#contact {
+  text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  background-color:#005691;
+  color: #e8f1f5;
+}
+
+.social {
+  font-size: 3.25rem;
+  color: #e8f1f5;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+}
