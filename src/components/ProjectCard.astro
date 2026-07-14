@@ -1,0 +1,35 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+
+interface Props {
+  entry: CollectionEntry<'projects'>;
+  reverse: boolean;
+}
+
+const { entry, reverse } = Astro.props;
+const { title, repoUrl, liveUrl, image } = entry.data;
+const { Content } = await render(entry);
+
+const base = import.meta.env.BASE_URL;
+---
+
+<div class={`split ${reverse ? 'reverse' : ''}`}>
+  <div>
+    <h3>{title}</h3>
+
+    <div>
+      <a target="_blank" rel="noopener" href={repoUrl} class="btn">VIEW CODE</a>
+      {liveUrl && (
+        <a target="_blank" rel="noopener" href={liveUrl} class="btn">VIEW LIVE</a>
+      )}
+    </div>
+
+    <div class="entry-write-up">
+      <Content />
+    </div>
+  </div>
+
+  <div class="split-media entry-media">
+    <img src={`${base}images/${image}`} alt={`${title} screenshot`} />
+  </div>
+</div>

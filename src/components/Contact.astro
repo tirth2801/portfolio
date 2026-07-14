@@ -1,0 +1,24 @@
+---
+import { site } from '../data/site';
+
+const { quotes, social, copyrightYear } = site;
+---
+
+<footer id="contact" class="section section-dark">
+  <h2>Contact</h2>
+  <h4>"{quotes.contact.text}"</h4>
+  <h5>- {quotes.contact.author}</h5>
+  <hr />
+
+  <h3>Let's connect!</h3>
+  <h3>Click through these to get in touch...</h3>
+
+  <div class="socials">
+    <a target="_blank" rel="noopener" href={social.github}><i class="social fab fa-github"></i></a>
+    <a target="_blank" rel="noopener" href={social.linkedin}><i class="social fab fa-linkedin"></i></a>
+    <a target="_blank" rel="noopener" href={social.gitlab}><i class="social fab fa-gitlab"></i></a>
+    <a target="_blank" rel="noopener" href={social.facebook}><i class="social fab fa-facebook"></i></a>
+  </div>
+
+  <p class="copyright">© {site.name} {copyrightYear}</p>
+</footer>

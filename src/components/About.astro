@@ -1,0 +1,26 @@
+---
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<section id="about" class="section section-light">
+  <h2>About</h2>
+  <h4>{site.tagline}</h4>
+  <hr />
+
+  <div class="split">
+    <div class="split-media">
+      <img class="profile-img" src={`${base}images/${site.about.image}`} alt="My Picture" />
+    </div>
+
+    <div>
+      <p class="about-bio">{site.about.bio}</p>
+
+      <div class="about-links">
+        <a target="_blank" rel="noopener" href={site.social.github} class="btn">MY GITHUB</a>
+        <a target="_blank" rel="noopener" href={site.social.linkedin} class="btn">MY LINKEDIN</a>
+      </div>
+    </div>
+  </div>
+</section>

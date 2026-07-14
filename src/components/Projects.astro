@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+import { site } from '../data/site';
+
+const { quotes } = site;
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="projects" class="section section-dark">
+  <h2>Projects</h2>
+  <h4>"{quotes.projects.text}"</h4>
+  <h5>- {quotes.projects.author}</h5>
+  <hr />
+
+  <div class="entry-list">
+    {projects.map((entry, i) => (
+      <ProjectCard entry={entry} reverse={i % 2 === 1} />
+    ))}
+  </div>
+
+  <div class="more-projects">
+    <a target="_blank" rel="noopener" href={site.githubReposUrl} class="btn">VIEW GITHUB FOR MORE PROJECTS...</a>
+  </div>
+</section>
