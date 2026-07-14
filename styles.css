@@ -262,6 +262,15 @@ hr {
   background-color: white;
 }
 
+.workIconBlock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: #005691;
+  font-size: 6rem;
+}
+
 .workDes {
   padding-top: 1.5rem;
 }
