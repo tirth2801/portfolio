@@ -4,6 +4,9 @@ repoUrl: https://github.com/tirth2801/play-the-simon-game
 liveUrl: https://tirth2801.github.io/play-the-simon-game/
 image: simon.jpg
 order: 5
+featured: true
+stack: [JS, jQuery]
+summary: The classic memory game rebuilt with fundamental data structures and a faithful vintage design.
 ---
 
 - Modelled a "Kids Favorite" game using fundamental data structures.

@@ -4,6 +4,7 @@ role: Grader
 dates: Sept'19 - May'22
 image: math.png
 order: 3
+tier: compact
 ---
 
 - Worked alongside the professor in making answer keys for tests and assignments.

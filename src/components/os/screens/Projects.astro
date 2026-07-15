@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import { site } from '../../../data/site';
+
+const base = import.meta.env.BASE_URL;
+const allProjects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const featured = allProjects.filter((p) => p.data.featured);
+const archived = allProjects.filter((p) => !p.data.featured);
+---
+
+<div class="os-screen" data-screen="projects" hidden>
+  <div class="eyebrow mono"><span class="eyebrow-pink">// PROJECTS.DIR</span></div>
+  <h2 class="about-heading">Selected builds</h2>
+  <div class="projects-grid">
+    {featured.map((project) => {
+      const { title, repoUrl, liveUrl, image, stack, summary } = project.data;
+      const tag = stack?.join(' · ').toUpperCase();
+      return (
+        <div class="project-card">
+          {image && (
+            <div class="project-card-media">
+              <img src={`${base}images/${image}`} alt={`${title} screenshot`} loading="lazy" decoding="async" />
+            </div>
+          )}
+          <div class="project-card-body">
+            <div class="project-card-head">
+              <div class="project-card-name">{title}</div>
+              {tag && <div class="project-card-tag mono">{tag}</div>}
+            </div>
+            {summary && <p class="project-card-desc">{summary}</p>}
+            <div class="project-card-links mono">
+              <a target="_blank" rel="noopener" href={repoUrl}>CODE ↗</a>
+              {liveUrl && (
+                <a class="live" target="_blank" rel="noopener" href={liveUrl}>LIVE ↗</a>
+              )}
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  {archived.length > 0 && (
+    <div class="projects-more mono">
+      + {archived.map((p) => p.data.title).join(', ')} → <a target="_blank" rel="noopener" href={site.githubReposUrl}>full archive on GitHub ↗</a>
+    </div>
+  )}
+</div>

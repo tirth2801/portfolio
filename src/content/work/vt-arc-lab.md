@@ -4,6 +4,7 @@ role: Software Engineering Intern
 dates: May'21 - Aug'21
 image: vt.png
 order: 2
+tier: compact
 ---
 
 - Built and launched Login & Authentication functionality for a research web application using Node.js and JavaScript.

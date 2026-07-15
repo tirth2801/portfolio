@@ -1,0 +1,14 @@
+---
+import { bootLines } from '../../data/os';
+---
+
+<div class="boot-overlay mono" id="boot-overlay">
+  <div class="boot-lines">
+    {bootLines.map((line) => (
+      <div class="boot-line" data-boot-line>
+        <span class="boot-caret">&gt;</span> {line}
+      </div>
+    ))}
+    <div class="boot-skip">[ click anywhere to skip ]</div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+
+const allJobs = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+const primary = allJobs.find((j) => j.data.tier === 'primary');
+const compact = allJobs.filter((j) => j.data.tier === 'compact');
+const primaryContent = primary ? await render(primary) : null;
+---
+
+<div class="os-screen" data-screen="work" hidden>
+  <div class="eyebrow mono">// WORK.LOG</div>
+  <h2 class="about-heading">Experience</h2>
+
+  {primary && primaryContent && (
+    <div class="work-primary">
+      <div class="work-primary-head">
+        <div class="work-primary-company">{primary.data.company} <span class="work-primary-role">— {primary.data.role}</span></div>
+        <div class="work-primary-dates mono">{primary.data.dates.toUpperCase()} · CHICAGO</div>
+      </div>
+      <primaryContent.Content />
+    </div>
+  )}
+
+  <div class="past-roles">
+    {compact.map((job) => (
+      <div class="past-role">
+        <div>
+          <span class="past-role-org">{job.data.company}</span>
+          <span class="past-role-title"> — {job.data.role}</span>
+        </div>
+        <div class="past-role-dates mono">{job.data.dates.toUpperCase()}</div>
+      </div>
+    ))}
+  </div>
+</div>

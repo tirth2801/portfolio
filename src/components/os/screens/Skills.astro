@@ -1,0 +1,27 @@
+---
+import { skillCategories } from '../../../data/skills';
+
+const variants = ['', 'pink', 'purple'];
+---
+
+<div class="os-screen" data-screen="skills" hidden>
+  <div class="eyebrow mono"><span class="eyebrow-purple">// SKILLS.SYS</span></div>
+  <h2 class="about-heading">Loadout</h2>
+  <div class="skills-grid">
+    {skillCategories.map((category, i) => {
+      const variant = variants[i % variants.length];
+      return (
+        <div class={`skill-card ${variant ? `skill-card-${variant}` : ''}`}>
+          <div class={`skill-card-label mono ${variant ? `skill-card-label-${variant}` : ''}`}>
+            [{String(i + 1).padStart(2, '0')}] {category.title.toUpperCase()}
+          </div>
+          <div class="skill-tags">
+            {category.items.map((item) => (
+              <span class="skill-tag mono">{item}</span>
+            ))}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>

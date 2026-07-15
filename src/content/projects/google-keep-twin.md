@@ -4,6 +4,9 @@ repoUrl: https://github.com/tirth2801/google-keep-clone
 liveUrl: https://note-keeper-application.netlify.app/
 image: googleKeep.jpg
 order: 2
+featured: true
+stack: [React, Hooks]
+summary: Note-taking app with real-time state for adding, deleting, and persisting notes via hooks and conditional rendering.
 ---
 
 - Built a React note-taking app inspired by the "Google Keep" app.
