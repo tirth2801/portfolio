@@ -9,7 +9,10 @@ const hasAvatarFace = fs.existsSync(avatarFacePath);
 ---
 
 <div class="companion" id="companion">
-  <div class="companion-bubble" id="companion-bubble">{companionMessages.home}</div>
+  <div class="companion-bubble" id="companion-bubble" role="status" aria-live="polite">
+    <button class="companion-bubble-close" id="companion-bubble-close" type="button" aria-label="Dismiss message">&times;</button>
+    <p class="companion-bubble-text" id="companion-bubble-text">{companionMessages.home}</p>
+  </div>
   <button class="companion-avatar" id="companion-avatar" type="button" title="Click me!" aria-label="Poke the avatar companion">
     {hasAvatarFace ? (
       <img src={`${base}images/avatar-face.jpg`} alt="Avatar companion" />

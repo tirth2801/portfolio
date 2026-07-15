@@ -7,21 +7,31 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const screens = document.querySelectorAll<HTMLElement>('[data-screen]');
 const dockButtons = document.querySelectorAll<HTMLButtonElement>('.os-dock-btn');
 const companionBubble = document.getElementById('companion-bubble');
+const companionBubbleText = document.getElementById('companion-bubble-text');
 let activeScreen = 'home';
 let quipIndex = -1;
 
-function replayBubble() {
+const COMPANION_PEEK_MS = 2600; // brief toast when the companion pipes up on its own (screen change)
+const COMPANION_INTERACT_MS = 4500; // longer when the user deliberately hovers/clicks the avatar
+let companionHideTimer: ReturnType<typeof setTimeout> | undefined;
+
+function showCompanionBubble(durationMs = COMPANION_INTERACT_MS) {
   if (!companionBubble) return;
-  companionBubble.style.animation = 'none';
-  void companionBubble.offsetWidth;
-  companionBubble.style.animation = '';
+  companionBubble.classList.add('is-visible');
+  clearTimeout(companionHideTimer);
+  companionHideTimer = setTimeout(hideCompanionBubble, durationMs);
 }
 
-function setCompanionMessage() {
-  if (!companionBubble) return;
-  companionBubble.textContent =
+function hideCompanionBubble() {
+  clearTimeout(companionHideTimer);
+  companionBubble?.classList.remove('is-visible');
+}
+
+function setCompanionMessage(durationMs = COMPANION_INTERACT_MS) {
+  if (!companionBubbleText) return;
+  companionBubbleText.textContent =
     quipIndex >= 0 ? companionQuips[quipIndex % companionQuips.length] : (companionMessages[activeScreen] ?? '');
-  replayBubble();
+  showCompanionBubble(durationMs);
 }
 
 function goToScreen(id: string) {
@@ -36,7 +46,7 @@ function goToScreen(id: string) {
     btn.setAttribute('aria-current', String(btn.dataset.screenTarget === id));
   });
   document.querySelector('.os-viewport')?.scrollTo(0, 0);
-  setCompanionMessage();
+  setCompanionMessage(COMPANION_PEEK_MS);
 
   const dock = document.getElementById('os-dock');
   const menuToggle = document.getElementById('os-menu-toggle');
@@ -163,9 +173,22 @@ window.addEventListener('keydown', (e) => {
 // --- Companion -------------------------------------------------
 
 const companionAvatar = document.getElementById('companion-avatar');
+const companionBubbleClose = document.getElementById('companion-bubble-close');
+
 companionAvatar?.addEventListener('click', () => {
   quipIndex++;
   setCompanionMessage();
 });
+companionAvatar?.addEventListener('mouseenter', () => showCompanionBubble());
+companionAvatar?.addEventListener('focus', () => showCompanionBubble());
+companionAvatar?.addEventListener('mouseleave', () => {
+  clearTimeout(companionHideTimer);
+  companionHideTimer = setTimeout(hideCompanionBubble, 1200);
+});
+companionAvatar?.addEventListener('blur', () => {
+  clearTimeout(companionHideTimer);
+  companionHideTimer = setTimeout(hideCompanionBubble, 1200);
+});
+companionBubbleClose?.addEventListener('click', hideCompanionBubble);
 
-setCompanionMessage();
+setCompanionMessage(COMPANION_PEEK_MS);
