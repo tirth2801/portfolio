@@ -1,0 +1,18 @@
+---
+import { site } from '../../../data/site';
+
+const base = import.meta.env.BASE_URL;
+const { social } = site;
+---
+
+<div class="os-screen os-screen-center" data-screen="contact" hidden>
+  <div class="eyebrow mono"><span class="eyebrow-purple">// UPLINK.OPEN</span></div>
+  <h2 class="contact-title">Let's connect<span class="home-title-accent">.</span></h2>
+  <p class="contact-lede">Open to interesting problems, collaborations, and good conversations about building things that ship.</p>
+  <div class="contact-links mono">
+    <a target="_blank" rel="noopener" href={social.github}>GITHUB ↗</a>
+    <a target="_blank" rel="noopener" href={social.linkedin}>LINKEDIN ↗</a>
+    <a target="_blank" rel="noopener" href={social.gitlab}>GITLAB ↗</a>
+    <a class="resume" target="_blank" rel="noopener" href={`${base}${site.education.resumePath}`}>RESUME.PDF ↗</a>
+  </div>
+</div>

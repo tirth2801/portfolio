@@ -1,0 +1,26 @@
+---
+import { site } from '../../../data/site';
+import { homeStats } from '../../../data/os';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="os-screen os-screen-center" data-screen="home">
+  <div class="eyebrow mono">// FORWARD DEPLOYED ENGINEER @ C3.AI</div>
+  <h1 class="home-title">TIRTH<br />SHROFF<span class="home-title-accent">_</span></h1>
+  <div class="home-typeline mono">
+    <span class="prompt">$</span> I build <span class="typed" data-typed-role></span><span class="caret" aria-hidden="true"></span>
+  </div>
+  <div class="home-actions">
+    <button class="btn btn-solid mono" type="button" data-screen-target="projects">VIEW PROJECTS →</button>
+    <a class="btn btn-outline mono" target="_blank" rel="noopener" href={`${base}${site.education.resumePath}`}>RESUME.PDF</a>
+  </div>
+  <div class="stats-grid">
+    {homeStats.map((stat) => (
+      <div class={`stat-tile ${stat.color !== 'cyan' ? `stat-tile-${stat.color}` : ''}`}>
+        <div class="stat-value">{stat.value}</div>
+        <div class="stat-label mono">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</div>

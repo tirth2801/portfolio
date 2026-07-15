@@ -1,0 +1,20 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { companionMessages } from '../../data/os';
+
+const base = import.meta.env.BASE_URL;
+const avatarFacePath = path.join(process.cwd(), 'public/images/avatar-face.png');
+const hasAvatarFace = fs.existsSync(avatarFacePath);
+---
+
+<div class="companion" id="companion">
+  <div class="companion-bubble" id="companion-bubble">{companionMessages.home}</div>
+  <button class="companion-avatar" id="companion-avatar" type="button" title="Click me!" aria-label="Poke the avatar companion">
+    {hasAvatarFace ? (
+      <img src={`${base}images/avatar-face.png`} alt="Avatar companion" />
+    ) : (
+      <span class="companion-avatar-fallback" aria-hidden="true">🙂</span>
+    )}
+  </button>
+</div>

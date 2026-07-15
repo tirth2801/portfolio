@@ -1,0 +1,27 @@
+---
+const items = [
+  { id: 'home', label: 'HOME', glyph: '◈' },
+  { id: 'about', label: 'ABOUT', glyph: '◉' },
+  { id: 'skills', label: 'SKILLS', glyph: '▤' },
+  { id: 'projects', label: 'PROJECTS', glyph: '▣' },
+  { id: 'work', label: 'WORK', glyph: '◆' },
+  { id: 'contact', label: 'CONTACT', glyph: '✦' },
+];
+---
+
+<div class="os-dock mono" id="os-dock">
+  <div class="os-dock-label">// NAVIGATE</div>
+  {items.map((item, i) => (
+    <button
+      class="os-dock-btn"
+      type="button"
+      data-screen-target={item.id}
+      aria-current={i === 0 ? 'true' : 'false'}
+    >
+      <span class="os-dock-glyph" aria-hidden="true">{item.glyph}</span>
+      <span>{item.label}</span>
+    </button>
+  ))}
+  <div class="os-dock-spacer"></div>
+  <div class="os-dock-footer">↑↑↓↓←→←→BA<br />© TIRTH SHROFF 2026</div>
+</div>

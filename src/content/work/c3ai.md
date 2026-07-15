@@ -3,6 +3,7 @@ company: C3.ai, Inc.
 role: Forward Deployed Engineer
 dates: Jul'22 - Present
 order: 1
+tier: primary
 ---
 
 - Led the technical delivery of two concurrent multi-facility industrial IoT engagements as sole embedded field engineer, bringing 6 facility deployments online while ingesting roughly 2 billion sensor readings across 800 sensors.

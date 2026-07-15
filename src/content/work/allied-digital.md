@@ -4,6 +4,7 @@ role: IoT Intern
 dates: Jun'19 - Aug'19
 image: adsl.jpg
 order: 5
+tier: compact
 ---
 
 - Conceptualized small IoT projects to learn software to microcontroller interfacing mainly using Python and Arduino.
