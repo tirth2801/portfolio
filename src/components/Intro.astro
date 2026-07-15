@@ -1,11 +1,20 @@
 ---
 import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="intro">
   <div class="intro">
-    <h1>{site.name.toUpperCase()}</h1>
+    <h1>{site.name}</h1>
     <hr />
-    <h4>Welcome to my Personal Website!!</h4>
+    <h4>{site.tagline}</h4>
+    <p class="intro-lede">{site.heroLede}</p>
+
+    <div class="intro-actions">
+      <a href="#projects" class="btn btn-accent">VIEW MY WORK</a>
+      <a target="_blank" rel="noopener" href={`${base}${site.education.resumePath}`} class="btn">RESUME</a>
+      <a href="#contact" class="btn">GET IN TOUCH</a>
+    </div>
   </div>
 </section>

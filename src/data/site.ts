@@ -4,6 +4,8 @@ export const site = {
   description:
     'Tirth Shroff — Forward Deployed Engineer at C3.ai building full-stack and GenAI-powered solutions for Fortune 500 industrial and energy customers.',
   tagline: 'Forward Deployed Engineer - Full-Stack Builder - Technical Lead',
+  heroLede:
+    "I embed with enterprise teams to ship full-stack and GenAI applications end-to-end — then turn what I build into reusable infrastructure other engineers build on.",
 
   social: {
     github: 'https://github.com/tirth2801',
@@ -13,7 +15,7 @@ export const site = {
   },
 
   about: {
-    bio: "I'm a Forward Deployed Engineer at C3.ai in Chicago, where I build data ingestion pipelines, full-stack applications, and GenAI-powered solutions for Fortune 500 industrial and energy customers. Over the past four years I've led customer engagements end-to-end, built reusable integration patterns adopted company-wide, and mentored engineers at every level. I care about turning one-off delivery work into lasting, reusable infrastructure — and about shipping things that actually get used.",
+    bio: "I'm a Forward Deployed Engineer at C3.ai in Chicago, where I own customer engagements end-to-end — full-stack applications, data ingestion pipelines, and GenAI-powered solutions for Fortune 500 industrial and energy customers. My pattern: take one-off delivery work and turn it into reusable infrastructure — connectors, pipelines, and internal tools that outlive the engagement they were built for and get adopted company-wide. I've led cross-functional teams past a dozen engineers, mentored 5+ engineers a cycle for three years running, and consistently delivered at a fraction of the staffing an engagement was scoped for.",
     image: 'profile.png',
   },
 
@@ -24,17 +26,6 @@ export const site = {
     schoolUrl: 'https://vt.edu/',
     image: 'vt.png',
     resumePath: 'resume/Tirth26_fde.pdf',
-  },
-
-  quotes: {
-    edu: { text: "Education's purpose is to replace an empty mind with an open one.", author: 'Malcolm Forbes' },
-    skills: {
-      text: 'The scope for improvement is infinite, precisely because perfecton is unattainable.',
-      author: 'George Soros',
-    },
-    projects: { text: 'Life is too short for non-wow projects.', author: 'Tom Peters' },
-    work: { text: 'The only source of knowledge is experience.', author: 'Albert Einstein' },
-    contact: { text: 'Good communication is the bridge between confusion and clarity.', author: 'Nat Turner' },
   },
 
   githubReposUrl: 'https://github.com/tirth2801?tab=repositories',

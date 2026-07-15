@@ -2,13 +2,11 @@
 import { site } from '../data/site';
 
 const base = import.meta.env.BASE_URL;
-const { education, quotes } = site;
+const { education } = site;
 ---
 
-<section id="edu" class="section section-dark">
+<section id="edu" class="section-alt">
   <h2>Education</h2>
-  <h4>"{quotes.edu.text}"</h4>
-  <h5>- {quotes.edu.author}</h5>
   <hr />
 
   <div class="split">
@@ -21,7 +19,7 @@ const { education, quotes } = site;
 
     <div class="split-media">
       <a target="_blank" rel="noopener" href={education.schoolUrl}>
-        <img class="edu-img" src={`${base}images/${education.image}`} alt={`${education.school} Pic`} />
+        <img class="edu-img" src={`${base}images/${education.image}`} alt={`${education.school} Pic`} width="400" height="400" loading="lazy" decoding="async" />
       </a>
     </div>
   </div>

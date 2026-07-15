@@ -13,10 +13,10 @@ const { Content } = await render(entry);
 const base = import.meta.env.BASE_URL;
 ---
 
-<div class={`split ${reverse ? 'reverse' : ''}`}>
+<div class={`split ${reverse ? 'reverse' : ''}`} data-reveal>
   <div class="split-media entry-media">
     {image ? (
-      <img src={`${base}images/${image}`} alt={`${company} logo`} />
+      <img src={`${base}images/${image}`} alt={`${company} logo`} width="420" height="300" loading="lazy" decoding="async" />
     ) : (
       <div class="entry-icon"><i class="fas fa-building"></i></div>
     )}

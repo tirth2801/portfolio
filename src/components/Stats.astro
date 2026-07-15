@@ -1,0 +1,16 @@
+---
+import { stats } from '../data/stats';
+---
+
+<section id="stats" class="section">
+  <div class="stats-grid">
+    {stats.map((stat, i) => (
+      <div class="stat-tile" data-reveal style={`transition-delay: ${i * 80}ms`}>
+        <p class="stat-number">
+          {stat.prefix}{stat.value != null ? <span data-count-to={stat.value}>0</span> : stat.raw}{stat.suffix}
+        </p>
+        <p class="stat-label">{stat.label}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,16 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import WorkEntry from './WorkEntry.astro';
-import { site } from '../data/site';
 
-const { quotes } = site;
 const jobs = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section id="work" class="section section-light">
+<section id="work" class="section">
   <h2>Work</h2>
-  <h4>"{quotes.work.text}"</h4>
-  <h5>- {quotes.work.author}</h5>
+  <p class="section-eyebrow">Where I've delivered, at scale</p>
   <hr />
 
   <div class="entry-list">
