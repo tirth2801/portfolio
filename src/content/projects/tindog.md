@@ -3,6 +3,7 @@ title: Tindog
 repoUrl: https://github.com/tirth2801/introduce-dogs-around
 liveUrl: https://tirth2801.github.io/introduce-dogs-around/
 image: tindog.jpg
+featured: false
 order: 6
 ---
 

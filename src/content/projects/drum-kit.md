@@ -3,6 +3,7 @@ title: Drum Kit
 repoUrl: https://github.com/tirth2801/drum-roll
 liveUrl: https://tirth2801.github.io/drum-roll/
 image: drum.jpg
+featured: false
 order: 4
 ---
 

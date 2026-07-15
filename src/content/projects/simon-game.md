@@ -3,6 +3,7 @@ title: The Simon Game
 repoUrl: https://github.com/tirth2801/play-the-simon-game
 liveUrl: https://tirth2801.github.io/play-the-simon-game/
 image: simon.jpg
+featured: false
 order: 5
 ---
 

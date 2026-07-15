@@ -3,6 +3,7 @@ title: To-Do List Application
 repoUrl: https://github.com/tirth2801/to-do-list-app
 liveUrl: https://application-todo-list.netlify.app/
 image: todoList.jpg
+featured: false
 order: 3
 ---
 

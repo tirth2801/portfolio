@@ -3,14 +3,13 @@ import { getCollection } from 'astro:content';
 import ProjectCard from './ProjectCard.astro';
 import { site } from '../data/site';
 
-const { quotes } = site;
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const projects = (await getCollection('projects', ({ data }) => data.featured))
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
-<section id="projects" class="section section-dark">
+<section id="projects" class="section-alt">
   <h2>Projects</h2>
-  <h4>"{quotes.projects.text}"</h4>
-  <h5>- {quotes.projects.author}</h5>
+  <p class="section-eyebrow">Selected projects, built end-to-end</p>
   <hr />
 
   <div class="entry-list">

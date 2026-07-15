@@ -1,11 +1,22 @@
 ---
-title: Amazon Clone
+title: E-Commerce Platform
 repoUrl: https://github.com/tirth2801/amazon-clone
 liveUrl: https://clone-cbb4c.web.app/
 image: amazonClone.png
-order: 1
+order: 2
+stack: [React, Node.js, MongoDB, Firebase Auth, Stripe]
+outcome: "Full checkout-to-order-history flow, live payments included"
 ---
 
-- Built a full-stack e-commerce site using the MERN stack with Firebase authentication and Stripe API checkout/payments.
-- Used modular React components and MongoDB to persist per-user order history.
-- Implemented real-time cart and checkout state management with React hooks.
+**Problem:** build a production-shaped e-commerce flow — not just a product
+grid — covering auth, cart state, payment, and order history.
+
+**Approach:** MERN stack with Firebase for authentication and the Stripe API
+for checkout/payments. Cart and checkout state are managed with React hooks
+for real-time updates; completed orders persist to MongoDB per user, keyed off
+the authenticated session.
+
+- Modular React components for the product grid, cart, and checkout flow.
+- Firebase authentication gating checkout and order history.
+- Stripe-backed payment flow from cart to confirmed order.
+- Per-user order history persisted in MongoDB.

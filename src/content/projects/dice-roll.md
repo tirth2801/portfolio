@@ -3,6 +3,7 @@ title: Dice Roll
 repoUrl: https://github.com/tirth2801/roll-the-dice
 liveUrl: https://tirth2801.github.io/roll-the-dice/
 image: dice.jpg
+featured: false
 order: 7
 ---
 

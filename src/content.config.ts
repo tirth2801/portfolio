@@ -7,8 +7,12 @@ const projects = defineCollection({
     title: z.string(),
     repoUrl: z.string().url(),
     liveUrl: z.string().url().optional(),
-    image: z.string(),
+    image: z.string().optional(),
+    icon: z.string().optional(),
     order: z.number(),
+    featured: z.boolean().default(true),
+    stack: z.array(z.string()).optional(),
+    outcome: z.string().optional(),
   }),
 });
 
