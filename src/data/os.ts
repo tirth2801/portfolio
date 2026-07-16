@@ -34,6 +34,7 @@ export const companionMessages: Record<string, string> = {
   skills: 'Full loadout equipped. The leadership tree is maxed out too.',
   projects: 'The Amazon clone has real Stripe checkout. He went all in.',
   work: '2 billion sensor readings. I counted every one.',
+  education: 'Thirty-ish courses, one of them was about disabilities studies. Renaissance man.',
   contact: 'Go on, say hi. He actually replies.',
 };
 

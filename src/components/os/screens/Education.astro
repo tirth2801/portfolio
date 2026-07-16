@@ -1,0 +1,44 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import { site } from '../../../data/site';
+import { semesters } from '../../../data/education';
+
+const base = import.meta.env.BASE_URL;
+const { education } = site;
+const gradImagePath = path.join(process.cwd(), 'public/images', education.gradImage);
+const hasGradImage = fs.existsSync(gradImagePath);
+---
+
+<div class="os-screen" data-screen="education" hidden>
+  <div class="edu-layout">
+    <div>
+      <div class="edu-header-sticky">
+        <div class="eyebrow mono">// SCHOOL.SYS</div>
+        <h2 class="about-heading">More than a CS degree<span class="home-title-accent">.</span></h2>
+        <div class="edu-meta mono">{education.school} · {education.yearRange} — {education.degree}</div>
+      </div>
+
+      <div class="edu-timeline">
+        {semesters.map((sem) => (
+          <div class={`edu-stop ${sem.note ? 'edu-stop-milestone' : ''}`}>
+            <div class="edu-stop-term mono">{sem.term.toUpperCase()}</div>
+            {sem.note && <div class="edu-stop-note mono">// {sem.note}</div>}
+            <div class="edu-stop-tags">
+              {sem.courses.map((course) => (
+                <span class="skill-tag mono">{course}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    {hasGradImage && (
+      <div class="edu-photo-col">
+        <div class="avatar-frame">
+          <img class="avatar-frame-img" src={`${base}images/${education.gradImage}`} alt={`${education.school} graduation`} />
+        </div>
+      </div>
+    )}
+  </div>
+</div>

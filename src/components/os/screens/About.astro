@@ -4,29 +4,19 @@ import path from 'node:path';
 import { site } from '../../../data/site';
 
 const base = import.meta.env.BASE_URL;
-const { about, education, social } = site;
+const { about, social } = site;
 const avatarPath = path.join(process.cwd(), 'public/images', about.image);
 const hasAvatar = fs.existsSync(avatarPath);
-const gradImagePath = path.join(process.cwd(), 'public/images', education.gradImage);
-const hasGradImage = fs.existsSync(gradImagePath);
 ---
 
 <div class="os-screen" data-screen="about" hidden>
-  <div class="eyebrow mono"><span class="eyebrow-pink">// ABOUT.EXE</span></div>
-  <h2 class="about-heading">Field engineer.<br /><span class="about-heading-muted">Full-stack builder.</span></h2>
   <div class="about-grid">
     <div>
+      <div class="eyebrow mono"><span class="eyebrow-pink">// ABOUT.EXE</span></div>
+      <h2 class="about-heading">Field engineer.<br /><span class="about-heading-muted">Full-stack builder.</span></h2>
       <div class="about-bio">
         {about.bioParagraphs.map((p) => <p>{p}</p>)}
       </div>
-      <a class="edu-box" target="_blank" rel="noopener" href={education.schoolUrl}>
-        {hasGradImage && <img class="edu-box-thumb" src={`${base}images/${education.gradImage}`} alt={`${education.school} graduation`} />}
-        <div>
-          <div class="edu-box-label mono">EDUCATION</div>
-          <div class="edu-box-school">{education.school} <span class="edu-box-dates">· {education.yearRange}</span></div>
-          <div class="edu-box-degree">{education.degree}</div>
-        </div>
-      </a>
       <div class="about-links mono">
         <a target="_blank" rel="noopener" href={social.github}>GITHUB ↗</a>
         <a target="_blank" rel="noopener" href={social.linkedin}>LINKEDIN ↗</a>
@@ -34,8 +24,7 @@ const hasGradImage = fs.existsSync(gradImagePath);
     </div>
     {hasAvatar && (
       <div class="avatar-frame">
-        <img src={`${base}images/${about.image}`} alt="Tirth avatar" />
-        <div class="avatar-tag mono">AVATAR.PNG</div>
+        <img class="avatar-frame-img" src={`${base}images/${about.image}`} alt="Tirth avatar" />
       </div>
     )}
   </div>
