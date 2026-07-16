@@ -13,7 +13,7 @@ export const site = {
   about: {
     bioParagraphs: [
       "I'm a Forward Deployed Engineer at C3.ai in Chicago, where I build data ingestion pipelines, full-stack applications, and GenAI-powered solutions for Fortune 500 industrial and energy customers.",
-      "Over the past four years I've led customer engagements end-to-end, built reusable integration patterns adopted company-wide, and mentored engineers at every level. I care about turning one-off delivery work into lasting, reusable infrastructure — and shipping things that actually get used.",
+      "Over the past four years I've led customer engagements end-to-end, built reusable integration patterns adopted company-wide, and mentored engineers at every level. I care about turning one-off delivery work into lasting, reusable infrastructure, and shipping things that actually get used.",
     ],
     image: 'avatar.jpg',
   },
@@ -23,7 +23,6 @@ export const site = {
     dates: "AUG'18 - MAY'22",
     yearRange: '2018–2022',
     degree: 'B.S. in Computer Science with a minor in Mathematics',
-    schoolUrl: 'https://vt.edu/',
     gradImage: 'vt-grad.jpg',
     resumePath: 'resume/Tirth26_fde.pdf',
   },
