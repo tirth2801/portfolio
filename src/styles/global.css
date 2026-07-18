@@ -954,6 +954,7 @@ a:hover {
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  pointer-events: none;
 }
 
 .companion-bubble {
@@ -1015,6 +1016,7 @@ a:hover {
   box-shadow: 0 0 24px rgba(94, 230, 255, 0.3);
   animation: floaty 4s ease-in-out infinite;
   transition: transform 0.18s ease;
+  pointer-events: auto;
 }
 
 .companion-avatar:hover {
