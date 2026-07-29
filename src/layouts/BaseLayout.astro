@@ -35,5 +35,17 @@ const ogImage = new URL(`${base}images/profile.png`, Astro.site).href;
     <script>
       import '../scripts/os';
     </script>
+
+    <!-- Cloudflare Web Analytics -->
+    {
+      import.meta.env.PROD && (
+        <script
+          is:inline
+          type="module"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "9a0f40d19d0a4c4ab6497d065a7d8cde"}'
+        />
+      )
+    }
   </body>
 </html>
