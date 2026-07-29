@@ -17,10 +17,20 @@ Node `>=22.12.0` is required (`engines` in `package.json`).
 
 Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds via `withastro/action@v3` and deploys with `actions/deploy-pages@v4` (Actions-based deploy, not the legacy branch-based build).
 
+## Analytics
+
+Traffic is measured with Cloudflare Web Analytics, via the beacon `<script>` in `BaseLayout.astro`. **Do not remove it in favor of Cloudflare's "automatic injection" setting.** Cloudflare performs that injection by rewriting HTML as it passes through its proxy, and this domain's DNS records are DNS-only (grey cloud) — requests resolve straight to GitHub Pages, so Cloudflare never sees the HTML. The site was configured for automatic injection for a while and recorded zero pageviews as a result.
+
+Consequences worth knowing:
+
+- Numbers live under **Analytics → Web Analytics** in the Cloudflare dashboard. The main Traffic dashboard will show 0 forever while the domain is DNS-only; that's expected, not a bug.
+- Because measurement is client-side JS, ad blockers hide some share of visits.
+- Turning on the orange cloud would fix both, but GitHub Pages certificate renewal needs care behind the proxy (use SSL/TLS mode Full (strict)). The manual beacon keeps working either way.
+
 ## Architecture
 
 - `src/pages/index.astro` — composes the OS shell: `StatusBar`, `DockNav`, the seven screens from `src/components/os/screens/` (`Home`, `About`, `Skills`, `Projects`, `Work`, `Education`, `Contact`), then `CompanionWidget`, `GlitchOverlay`, and `BootOverlay` — all wrapped in `src/layouts/BaseLayout.astro`.
-- `src/layouts/BaseLayout.astro` — handles `<head>` (meta description, Open Graph/Twitter tags, favicon, apple-touch-icon) and imports `global.css` plus the two font packages. Fonts are **self-hosted through npm**; there are no Google Fonts or Font Awesome CDN links, and no Bootstrap, jQuery, or Popper.
+- `src/layouts/BaseLayout.astro` — handles `<head>` (meta description, Open Graph/Twitter tags, favicon, apple-touch-icon) and imports `global.css` plus the two font packages. Fonts are **self-hosted through npm**; there are no Google Fonts or Font Awesome CDN links, and no Bootstrap, jQuery, or Popper. It also carries the Cloudflare Web Analytics beacon, gated behind `import.meta.env.PROD` so local dev doesn't report pageviews.
 - `src/scripts/os.ts` — all client-side behavior in one module, imported once from `BaseLayout`: dock-driven screen switching, the typed-role rotator, the boot sequence, companion messages/quips, and a Konami-code easter egg. Checks `prefers-reduced-motion` up front and degrades accordingly.
 - `src/content.config.ts` — two content collections backed by markdown, using Astro's `glob` loader:
   - `projects` (`src/content/projects/*.md`) — required: `title`, `repoUrl`, `order`. Optional: `liveUrl`, `image`, `stack` (string array), `summary`. Plus `featured` (boolean, defaults to `false`).
