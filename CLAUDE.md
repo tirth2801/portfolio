@@ -25,8 +25,8 @@ Pushing to `master` triggers `.github/workflows/deploy.yml`, which builds the si
 - `src/data/site.ts` — site-wide constants used across multiple sections (name, tagline, social links, about bio, education block, per-section quotes, copyright year) — the single source of truth so, e.g., About and the footer don't duplicate the GitHub/LinkedIn URLs.
 - `src/data/skills.ts` — the three skills categories (Frontend, Backend & Data, Leadership & Delivery) as a typed array. These change rarely enough that a full content collection would be overkill.
 - `src/styles/global.css` — all styling. The two-color theme (`#e8f1f5` light, `#005691` dark) is defined once as CSS custom properties (`--color-light`, `--color-dark`, plus derived hover/muted tones) in `:root` and reused throughout. Layout uses plain CSS Grid/Flexbox (a `.split` two-column pattern, mobile-first with a single breakpoint at 900px) — no Bootstrap.
-- `public/images/`, `public/resume/`, `public/favicon.ico` — static assets served verbatim at the same paths (prefixed with the `/portfolio` base in production). Reference them in components via `` `${import.meta.env.BASE_URL}images/...` `` rather than hardcoding the base path.
-- `astro.config.mjs` — sets `site`/`base` for GitHub Pages project-site hosting (`tirth2801.github.io/portfolio/`).
+- `public/images/`, `public/resume/`, `public/favicon.ico`, `public/CNAME` — static assets served verbatim at the same paths. Reference them in components via `` `${import.meta.env.BASE_URL}images/...` `` rather than hardcoding a leading `/`, so the base stays configurable in one place.
+- `astro.config.mjs` — sets `site: 'https://tirthshroff.com'` and `base: '/'`. The site is served from the apex custom domain (declared in `public/CNAME`), **not** from a `github.io/portfolio` project path, so there is no path prefix in production and `import.meta.env.BASE_URL` resolves to `/`.
 
 External dependencies still loaded via CDN in `BaseLayout.astro`: Google Fonts and Font Awesome (pure CSS/font assets, no JS behavior tied to them). Bootstrap, jQuery, and Popper.js have been removed entirely.
 
